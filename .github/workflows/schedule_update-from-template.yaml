@@ -1,21 +1,24 @@
+---
 name: Update from template
+
 "on":
   schedule:
     - cron: "00 00 * * *"
   workflow_dispatch:
+
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: false
+
 jobs:
   merge:
     name: Update from template
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - name: Checkout
-        uses: actions/checkout@v4.2.2
-        with:
-          token: ${{ secrets.PAT }}
-          fetch-depth: 0
+        uses: actions/checkout@v5.0.0
 
       - name: Run update script
         run: bash update.sh
