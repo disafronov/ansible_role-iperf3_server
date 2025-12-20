@@ -1,5 +1,5 @@
 ---
-name: Lint
+name: Breakage
 
 "on":
   pull_request:
@@ -16,8 +16,8 @@ concurrency:
 
 jobs:
 
-  test:
-    name: lint
+  breakage:
+    name: Breakage
     runs-on: ubuntu-latest
     permissions:
       contents: read
