@@ -14,6 +14,8 @@ jobs:
   rebase:
     name: "Rebase"
     runs-on: ubuntu-latest
+    # Run only on release commits
+    if: startsWith(github.event.head_commit.message, 'chore(release):')
     permissions:
       pull-requests: write
       contents: write
